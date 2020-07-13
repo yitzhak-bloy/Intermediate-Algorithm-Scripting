@@ -32,4 +32,4 @@ const translatePigLatin = (str) => {
   return result
 }
   
-translatePigLatin("glove");  
+translatePigLatin('california');  
