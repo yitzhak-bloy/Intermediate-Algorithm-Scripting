@@ -13,24 +13,22 @@ Preserve the case of the first character in the original word when you are repla
 For example if you mean to replace the word "Book" with the word "dog", it should be replaced as "Dog"
 */
 
-const myReplace = (...args) => {
-  let sentenceArr = args[0].split(' ');
-  let wordBefore = args[1];
-  let wordAfter = args[2];
-  let wordAfterFinal;
+const myReplace = (str, before, after) => {
+  let strArr = str.split(' ');
+  let afterFinal;
 
-  for (let i = 0; i < sentenceArr.length; i++) {
-    if (sentenceArr[i].toUpperCase() === wordBefore.toUpperCase()) {
-      if (/[A-Z]/.test(sentenceArr[i][0])) {
-         wordAfterFinal = wordAfter.replace(wordAfter[0], wordAfter.split('')[0].toUpperCase());
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i].toUpperCase() === before.toUpperCase()) {
+      if (/[A-Z]/.test(strArr[i][0])) {
+         afterFinal = after.replace(after[0], after.split('')[0].toUpperCase());
       } else {
-         wordAfterFinal = wordAfter.replace(wordAfter[0], wordAfter.split('')[0].toLowerCase());
+         afterFinal = after.replace(after[0], after.split('')[0].toLowerCase());
       }
-      sentenceArr[i] = wordAfterFinal;
+      strArr[i] = afterFinal;
     };
   };
 
-  return sentenceArr.join(' ');
+  return strArr.join(' ');
 };
   
 myReplace("Let us go to the store", "store", "mall")
